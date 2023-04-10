@@ -186,7 +186,9 @@
      entityModel.Parent = workspace 
      task.spawn(entityTable.Debug.OnEntitySpawned) 
      
-     local move = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true","ReboundIsMoving") 
+     local move = Instance.new("Sound", workspace)
+
+move.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true","ReboundIsMoving") 
      move.Parent = entityModel.PrimaryPart 
      move.Name = "ReboundMoving" 
      move.Volume = 0 
