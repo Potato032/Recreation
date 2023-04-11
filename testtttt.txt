@@ -255,12 +255,13 @@
      
   
   -----[[ Advanced ]]-----   
- wait(3.1)
- Speed = speed
-  
      
   
   entity.Debug.OnEntityEnteredRoom = function(room)   
+
+wait(3.1)
+ Speed = speed
+  
   
       print("Entity:", entity, "has entered room:", room)   
   
@@ -300,7 +301,7 @@
   
       movv.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true","ReboundMoveTwo")  
   
-      movv.Volume = 7 
+      movv.Volume = 0.3
   
       movv.PlaybackSpeed = 0.9 
   
@@ -435,12 +436,13 @@
      
   
   -----[[ Advanced ]]-----   
- wait(3.1)
- Speed = speed
-  
+ 
      
   
   entity.Debug.OnEntityEnteredRoom = function(room)   
+  
+wait(3.1)
+ Speed = speed
   
       print("Entity:", entity, "has entered room:", room)   
   
@@ -480,7 +482,7 @@
   
       movv.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true","ReboundMoveTwo")  
   
-      movv.Volume = 7 
+      movv.Volume = 0.5
   
       movv.PlaybackSpeed = 0.9 
   
@@ -615,14 +617,15 @@
      
   
   -----[[ Advanced ]]-----   
- wait(3.1)
- Speed = speed
-  
+ 
      
   
   entity.Debug.OnEntityEnteredRoom = function(room)   
   
-      print("Entity:", entity, "has entered room:", room)   
+
+wait(3.1)
+ Speed = speed
+        print("Entity:", entity, "has entered room:", room)   
   
   end   
   
@@ -660,7 +663,7 @@
   
       movv.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true","ReboundMoveTwo")  
   
-      movv.Volume = 7 
+      movv.Volume = 0.5
   
       movv.PlaybackSpeed = 0.9 
   
@@ -795,12 +798,13 @@
      
   
   -----[[ Advanced ]]-----   
- wait(3.1)
- Speed = speed
-  
+ 
      
   
   entity.Debug.OnEntityEnteredRoom = function(room)   
+  
+wait(3.1)
+ Speed = speed
   
       print("Entity:", entity, "has entered room:", room)   
   
@@ -840,7 +844,7 @@
   
       movv.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true","ReboundMoveTwo")  
   
-      movv.Volume = 7 
+      movv.Volume = 0.5
   
       movv.PlaybackSpeed = 0.9 
   
@@ -854,7 +858,7 @@
   
       thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
   
-      thund.Volume = 7 
+      thund.Volume = 0.5
   
       thund.PlaybackSpeed = 0.9 
   
@@ -876,7 +880,7 @@
   
       Model = "rbxassetid://11411313091", -- Can be GitHub file or rbxassetid   
   
-      Speed = 65, -- Percentage, 100 = default Rush speed   
+      Speed = speed, -- Percentage, 100 = default Rush speed   
   
       DelayTime = fuck, -- Time before starting cycles (seconds)   
   
@@ -975,8 +979,7 @@
      
   
   -----[[ Advanced ]]-----   
- wait(2)
- Speed = speed
+ 
   
      
   
@@ -1048,7 +1051,7 @@
   
       movv.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true","ReboundMoveTwo")  
   
-      movv.Volume = 7 
+      movv.Volume = 0.5
   
       movv.PlaybackSpeed = 0.9 
   
