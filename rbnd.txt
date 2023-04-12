@@ -2,7 +2,7 @@ local rebb = false
 local part = Instance.new("Part") 
  part.Name = "Bound" 
  part.Parent = workspace 
- game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(61, 171, 115) 
+ game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(61, 171, 108) 
  game.Lighting.MainColorCorrection.Contrast = 0.2 
  game.Lighting.MainColorCorrection.Saturation = -0.7 
  local tween = game:GetService("TweenService") 
@@ -35,7 +35,7 @@ local part = Instance.new("Part")
  local cue2 = Instance.new("Sound") 
  cue2.Parent = game.Workspace 
  cue2.Name = "Spawn" 
- cue2.SoundId = "rbxassetid://9114221327" 
+ cue2.SoundId = "https://github.com/Potato032/Recreation/blob/main/Rebound%20moving.mp3?raw=true" 
  cue2.Volume = 3 
  cue2:Play() 
  local CameraShaker = require(game.ReplicatedStorage.CameraShaker) 
@@ -45,20 +45,22 @@ local part = Instance.new("Part")
  end) 
  camShake:Start() 
  camShake:ShakeOnce(10,3,0.1,6,2,0.5) 
- local speed = math.random(100,180) 
+ local speed = math.random(75,170) 
  local delay = {"0.1", "0.2", "0.3"} 
  local fuck = delay[math.random(1, #delay)] 
  wait(2.8) 
- 
- function ReplaceAudGit(GithubSnd,SoundName) 
-         local url=GithubSnd 
-         if not isfile(SoundName..".mp3") then 
-                 writefile(SoundName..".mp3", game:HttpGet(url)) 
-         end 
-         return (getcustomasset or getsynasset)(SoundName..".mp3") 
+  
+ function GetGitSound(GithubSnd,SoundName) 
+         local url=GithubSnd 
+         if not isfile(SoundName..".mp3") then 
+                 writefile(SoundName..".mp3", game:HttpGet(url)) 
+         end 
+         local sound=Instance.new("Sound") 
+         sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3") 
+         return sound 
  end 
   
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))() 
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))() 
   
  -- Create entity 
   
@@ -111,6 +113,7 @@ local part = Instance.new("Part")
          }, 
      }, 
      CustomDialog = {"w"}, -- Custom death message (can be as long as you want) 
+ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
  }) 
   
  -----[[ Advanced ]]----- 
@@ -135,14 +138,16 @@ local part = Instance.new("Part")
      print("Entity has started moving:", entityModel) 
      game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait() 
  wait(0.5)
- 
- local thund = Instance.new("Sound", workspace) 
-      thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 6
-      thund.PlaybackSpeed = 0.9 
-      thund:Play() 
-  wait(4.8)
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))() 
+ local thu = Instance.new("Sound") 
+ thu.Parent = game.Workspace 
+ thu.Name = "ReboundThunder" 
+ thu.SoundId = "https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true" 
+ thu.Volume = 9
+ thu.PlaybackSpeed = 0.9
+ thu:Play() 
+ wait(4.8)
+      
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))() 
   
  -- Create entity 
   
@@ -195,7 +200,9 @@ local part = Instance.new("Part")
          }, 
      }, 
      CustomDialog = {"w"}, -- Custom death message (can be as long as you want) 
+ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
  }) 
+ 
   
  -----[[ Advanced ]]----- 
   
@@ -219,14 +226,16 @@ local part = Instance.new("Part")
      print("Entity has started moving:", entityModel) 
      game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait() 
  wait(0.5)
- local thund = Instance.new("Sound", workspace) 
-      thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 6
-      thund.PlaybackSpeed = 0.9 
-      thund:Play() 
-  wait(4.8)
+ local thu = Instance.new("Sound") 
+ thu.Parent = game.Workspace 
+ thu.Name = "ReboundThunder" 
+ thu.SoundId = "https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true" 
+ thu.Volume = 9
+ thu.PlaybackSpeed = 0.9
+ thu:Play() 
+ wait(4.8)
       
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))() 
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))() 
   
  -- Create entity 
   
@@ -279,6 +288,7 @@ local part = Instance.new("Part")
          }, 
      }, 
      CustomDialog = {"w"}, -- Custom death message (can be as long as you want) 
+ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
  }) 
   
  -----[[ Advanced ]]----- 
@@ -303,15 +313,16 @@ local part = Instance.new("Part")
      print("Entity has started moving:", entityModel) 
      game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait() 
  wait(0.5)
- 
- local thund = Instance.new("Sound", workspace) 
-      thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 6
-      thund.PlaybackSpeed = 0.9 
-      thund:Play() 
-  wait(4.8)
+ local thu = Instance.new("Sound") 
+ thu.Parent = game.Workspace 
+ thu.Name = "ReboundThunder" 
+ thu.SoundId = "https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true" 
+ thu.Volume = 9
+ thu.PlaybackSpeed = 0.9
+ thu:Play() 
+ wait(4.8)
       
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))() 
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))() 
   
  -- Create entity 
   
@@ -364,6 +375,7 @@ local part = Instance.new("Part")
          }, 
      }, 
      CustomDialog = {"w"}, -- Custom death message (can be as long as you want) 
+ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
  }) 
   
  -----[[ Advanced ]]----- 
@@ -375,7 +387,7 @@ local part = Instance.new("Part")
  entity.Debug.OnEntitySpawned = function(entityModel) 
      print("Entity has spawned:", entityModel) 
      wait(15) 
-     workspace.Rebound:Destroy() 
+     workspace.ReboUnd:Destroy() 
  end 
   
  entity.Debug.OnEntityDespawned = function(entityModel) 
@@ -388,22 +400,23 @@ local part = Instance.new("Part")
      print("Entity has started moving:", entityModel) 
      game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait() 
  wait(0.5)
- 
- local thund = Instance.new("Sound", workspace) 
-      thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 6
-      thund.PlaybackSpeed = 0.9 
-      thund:Play() 
-  wait(4.8)
+ local thu = Instance.new("Sound") 
+ thu.Parent = game.Workspace 
+ thu.Name = "ReboundThunder" 
+ thu.SoundId = "https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true" 
+ thu.Volume = 9
+ thu.PlaybackSpeed = 0.9
+ thu:Play() 
+ wait(4.8)
       
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))() 
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))() 
   
  -- Create entity 
   
  local entity = Creator.createEntity({ 
      CustomName = "RebOund", -- Custom name of your entity 
      Model = "rbxassetid://11411313091", -- Can be GitHub file or rbxassetid 
-     Speed = speed, -- Percentage, 100 = default Rush speed 
+     Speed = speed, -- Percentage, 100 = default Rush speed 
      DelayTime = fuck, -- Time before starting cycles (seconds) 
      HeightOffset = 0.3, 
      CanKill = true, 
@@ -449,6 +462,7 @@ local part = Instance.new("Part")
          }, 
      }, 
      CustomDialog = {"w"}, -- Custom death message (can be as long as you want) 
+ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
  }) 
   
  -----[[ Advanced ]]----- 
@@ -468,7 +482,7 @@ local part = Instance.new("Part")
      cue1:Destroy() 
      cue2:Destroy() 
      part:Destroy() 
-  if rebb == false then  
+if rebb == false then  
       wait(1)
       rebb = true  
   
@@ -482,7 +496,7 @@ local part = Instance.new("Part")
       Image = "https://github.com/check78/worldcuuuup/blob/main/ReboundBadgeV2.png?raw=true",  
   })  
   
-  end   
+  end 
  end 
   
  entity.Debug.OnEntityStartMoving = function(entityModel) 
@@ -513,7 +527,25 @@ local part = Instance.new("Part")
   
  entity.Debug.OnDeath = function() 
      warn("You died.") 
-     print("fuck.") 
+     print("HEHEHA.") 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
+ wait(1.8) 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))() 
+ end 
+  
+ ------------------------ 
+  
+ -- Run the created entity 
+ Creator.runEntity(entity) 
+ end 
+  
+ entity.Debug.OnEntityFinishedRebound = function(entityModel) 
+     print("Entity finished rebound:", entityModel) 
+ end 
+  
+ entity.Debug.OnDeath = function() 
+     warn("You died.") 
+     print("L .") 
  loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
  wait(1.8) 
  loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))() 
@@ -549,25 +581,7 @@ local part = Instance.new("Part")
   
  entity.Debug.OnDeath = function() 
      warn("You died.") 
-     print("fuck.") 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
- wait(1.8) 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))() 
- end 
-  
- ------------------------ 
-  
- -- Run the created entity 
- Creator.runEntity(entity) 
- end 
-  
- entity.Debug.OnEntityFinishedRebound = function(entityModel) 
-     print("Entity finished rebound:", entityModel) 
- end 
-  
- entity.Debug.OnDeath = function() 
-     warn("You died.") 
-     print("fuck.") 
+     print("Rebound.") 
  loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
  wait(1.8) 
  loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))() 
