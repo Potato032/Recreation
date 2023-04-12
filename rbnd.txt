@@ -49,16 +49,6 @@ local part = Instance.new("Part")
  local delay = {"0.1", "0.2", "0.3"} 
  local fuck = delay[math.random(1, #delay)] 
  wait(2.8) 
-  
- function GetGitSound(GithubSnd,SoundName) 
-         local url=GithubSnd 
-         if not isfile(SoundName..".mp3") then 
-                 writefile(SoundName..".mp3", game:HttpGet(url)) 
-         end 
-         local sound=Instance.new("Sound") 
-         sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3") 
-         return sound 
- end 
  
  function ReplaceAudGit(GithubSnd,SoundName) 
          local url=GithubSnd 
@@ -148,7 +138,7 @@ local part = Instance.new("Part")
  
  local thund = Instance.new("Sound", workspace) 
       thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 7 
+      thund.Volume = 6
       thund.PlaybackSpeed = 0.9 
       thund:Play() 
   wait(4.8)
@@ -231,7 +221,7 @@ local part = Instance.new("Part")
  wait(0.5)
  local thund = Instance.new("Sound", workspace) 
       thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 7 
+      thund.Volume = 6
       thund.PlaybackSpeed = 0.9 
       thund:Play() 
   wait(4.8)
@@ -316,7 +306,7 @@ local part = Instance.new("Part")
  
  local thund = Instance.new("Sound", workspace) 
       thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 7 
+      thund.Volume = 6
       thund.PlaybackSpeed = 0.9 
       thund:Play() 
   wait(4.8)
@@ -401,7 +391,7 @@ local part = Instance.new("Part")
  
  local thund = Instance.new("Sound", workspace) 
       thund.SoundId = ReplaceAudGit("https://github.com/Potato032/Recreation/blob/main/ReboundPreMove.mp3?raw=true","ReboundThund")  
-      thund.Volume = 7 
+      thund.Volume = 6
       thund.PlaybackSpeed = 0.9 
       thund:Play() 
   wait(4.8)
