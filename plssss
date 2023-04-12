@@ -1,3 +1,6 @@
+-- Credits do Tomorrow, Noonie and Ping
+game.SoundService.AmbientReverb = "City"
+
 local part = Instance.new("Part") 
 
  part.Name = "Bound" 
