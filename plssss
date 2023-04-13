@@ -1,6 +1,5 @@
 -- Credits do Tomorrow, Noonie and Ping
 
-
 local part = Instance.new("Part") 
 
  part.Name = "Bound" 
@@ -93,9 +92,9 @@ local part = Instance.new("Part")
 
  camShake:ShakeOnce(10,3,0.1,6,2,0.5) 
 
- local speed = math.random(75,175) 
+ local speed = math.random(160,195) 
 
- local delay = {"0.1", "0.2"} 
+ local delay = {"0.001", "0.0001"} 
 
  local fuck = delay[math.random(1, #delay)] 
 
@@ -151,7 +150,7 @@ local part = Instance.new("Part")
 
      Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
-     Speed = speed, -- Percentage, 100 = default Rush speed 
+     Speed = 70, -- Percentage, 100 = default Rush speed 
 
      DelayTime = fuck, -- Time before starting cycles (seconds) 
 
@@ -317,7 +316,7 @@ wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent
 
      Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
-     Speed = speed, -- Percentage, 100 = default Rush speed 
+     Speed = 95, -- Percentage, 100 = default Rush speed 
 
      DelayTime = fuck, -- Time before starting cycles (seconds) 
 
@@ -483,7 +482,7 @@ wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent
 
      Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
-     Speed = speed, -- Percentage, 100 = default Rush speed 
+     Speed = 110, -- Percentage, 100 = default Rush speed 
 
      DelayTime = fuck, -- Time before starting cycles (seconds) 
 
@@ -649,7 +648,7 @@ wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent
 
      Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
-     Speed = speed, -- Percentage, 100 = default Rush speed 
+     Speed = 145, -- Percentage, 100 = default Rush speed 
 
      DelayTime = fuck, -- Time before starting cycles (seconds) 
 
