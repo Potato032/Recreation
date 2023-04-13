@@ -149,7 +149,7 @@ local part = Instance.new("Part")
 
      CustomName = "Rebound", -- Custom name of your entity 
 
-     Model = "rbxassetid://11411313091", -- Can be GitHub file or rbxassetid 
+     Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
      Speed = speed, -- Percentage, 100 = default Rush speed 
 
@@ -315,7 +315,7 @@ wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent
 
      CustomName = "RebounD", -- Custom name of your entity 
 
-     Model = "rbxassetid://11411313091", -- Can be GitHub file or rbxassetid 
+     Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
      Speed = speed, -- Percentage, 100 = default Rush speed 
 
@@ -481,7 +481,7 @@ wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent
 
      CustomName = "RebouNd", -- Custom name of your entity 
 
-     Model = "rbxassetid://11411313091", -- Can be GitHub file or rbxassetid 
+     Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
      Speed = speed, -- Percentage, 100 = default Rush speed 
 
@@ -647,7 +647,7 @@ wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent
 
      CustomName = "ReboUnd", -- Custom name of your entity 
 
-     Model = "rbxassetid://11411313091", -- Can be GitHub file or rbxassetid 
+     Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
      Speed = speed, -- Percentage, 100 = default Rush speed 
 
@@ -817,7 +817,7 @@ wait(4.8)
 
      CustomName = "RebOund", -- Custom name of your entity 
 
-     Model = "rbxassetid://11411313091", -- Can be GitHub file or rbxassetid 
+     Model = "rbxassetid://12516782859", -- Can be GitHub file or rbxassetid 
 
      Speed = speed, -- Percentage, 100 = default Rush speed 
 
@@ -977,7 +977,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1013,7 +1013,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1049,7 +1049,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1085,7 +1085,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1121,7 +1121,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
