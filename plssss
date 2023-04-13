@@ -137,7 +137,7 @@ local part = Instance.new("Part")
 
  end 
 
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/fuq.lua"))() 
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))() 
 
   
 
@@ -303,7 +303,7 @@ thund.PlaybackSpeed = 0.9
 
 thund:Play()
 
-wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/fuq.lua"))() 
+wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))() 
 
   
 
@@ -469,7 +469,7 @@ thund.PlaybackSpeed = 0.9
 
 thund:Play()
 
-wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/fuq.lua"))() 
+wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))() 
 
   
 
@@ -635,7 +635,7 @@ thund.PlaybackSpeed = 0.9
 
 thund:Play()
 
-wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/fuq.lua"))() 
+wait(4.8) local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))() 
 
   
 
@@ -805,7 +805,7 @@ thund:Play()
 
 wait(4.8)
 
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/fuq.lua"))() 
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))() 
 
   
 
