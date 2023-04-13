@@ -95,7 +95,7 @@
   
   local speed = math.random(75,175)  
   
-  local delay = {"0.0001", "0.1"}  
+  local delay = {"0.1", "0.2"}  
   
   local fuck = delay[math.random(1, #delay)]  
   
@@ -137,7 +137,7 @@
   
   end  
   
-  local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/wut"))()  
+  local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()  
   
     
   
@@ -305,7 +305,7 @@
   
  wait(4.8) 
 
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/wut"))()  
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()  
   
     
   
@@ -474,7 +474,7 @@ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Po
  wait(4.8) 
 
 
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/wut"))()  
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()  
   
     
   
@@ -643,7 +643,7 @@ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Po
  wait(4.8)
 
 
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/wut"))()  
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()  
   
     
   
@@ -813,7 +813,7 @@ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Po
   
  wait(4.8) 
   
- local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/wut"))()  
+ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()  
   
     
   
