@@ -6,7 +6,7 @@ local part = Instance.new("Part")
 
  part.Parent = workspace 
 
- game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(61, 171, 98) 
+ game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(61, 171, 118) 
 
  game.Lighting.MainColorCorrection.Contrast = 0.2 
 
@@ -20,7 +20,7 @@ local part = Instance.new("Part")
 
  local TweenService = game:GetService("TweenService") 
 
- local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(15),{TintColor = Color3.fromRGB(255, 255, 255)}) 
+ local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(20),{TintColor = Color3.fromRGB(255, 255, 255)}) 
 
  TW:Play() 
 
@@ -976,7 +976,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1012,7 +1012,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1048,7 +1048,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1084,7 +1084,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
@@ -1120,7 +1120,7 @@ firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died
 
      print("fuck.") 
 
- loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/chicken/main/ReboundJumpscare.txt"))() 
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/ReboundJumpscare.txt"))() 
 
  wait(1.8) 
 
