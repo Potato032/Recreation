@@ -1,971 +1,595 @@
-local part = Instance.new("Part")
-
-part.Name = "Bound"
-
-part.Parent = workspace
-
-game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(61, 171, 98)
-
-game.Lighting.MainColorCorrection.Contrast = 0.2
-
-game.Lighting.MainColorCorrection.Saturation = -0.7
-
-local tween = game:GetService("TweenService")
-
-tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
-
-tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 0}):Play()
-
-local TweenService = game:GetService("TweenService")
-
-local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
-
-TW:Play()
-
-local cue1 = Instance.new("Sound")
-
-cue1.Parent = game.Workspace
-
-cue1.Name = "Scream"
-
-cue1.SoundId = "rbxassetid://9114397505"
-
-local distort = Instance.new("DistortionSoundEffect")
-
-distort.Parent = cue1
-
-distort.Level = 1
-
-local distort2 = Instance.new("DistortionSoundEffect")
-
-distort2.Parent = cue1
-
-distort2.Level = 1
-
-local pitch = Instance.new("PitchShiftSoundEffect")
-
-pitch.Parent = cue1
-
-pitch.Octave = 0.5
-
-local pitch2 = Instance.new("PitchShiftSoundEffect")
-
-pitch2.Parent = cue1
-
-pitch2.Octave = 0.5
-
-local pitch3 = Instance.new("PitchShiftSoundEffect")
-
-pitch3.Parent = cue1
-
-pitch3.Octave = 0.5
-
-cue1.Volume = 0.1
-
-cue1:Play()
-
-local cue2 = Instance.new("Sound")
-
-cue2.Parent = game.Workspace
-
-cue2.Name = "Spawn"
-
-cue2.SoundId = "https://github.com/ThatNoah/Idk/blob/main/ReboundMoving.mp3?raw=true"
-
-cue2.Volume = 3
-
-cue2:Play()
-
-local CameraShaker = require(game.ReplicatedStorage.CameraShaker)
-
-local camara = game.Workspace.CurrentCamera
-
-local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
-
-	camara.CFrame = camara.CFrame * shakeCfend)
-
-camShake:Start()
-
-camShake:ShakeOnce(10,3,0.1,6,2,0.5)
-
-local speed = math.random(150,1050)
-
-local delay = {"0.1", "0.2"}
-
-local fuck = delay[math.random(1, #delay)]
-
-wait(2.8)
-
-function GetGitSound(GithubSnd,SoundName)
-
-	local url=GithubSnd
-
-	if not isfile(SoundName..".mp3") then
-
-		writefile(SoundName..".mp3", game:HttpGet(url))
-
-	end
-
-	local sound=Instance.new("Sound")
-
-	sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3")
-
-	return sound
-
-end
-
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()
-
--- Create entity
-
-local entity = Creator.createEntity({
-
-    CustomName = "Rebound", -- Custom name of your entity
-
-    Model = "rbxassetid://12832732579", -- Can be GitHub file or rbxassetid
-
-    Speed = 80, -- Percentage, 100 = default Rush speed
-
-    DelayTime = fuck, -- Time before starting cycles (seconds)
-
-    HeightOffset = 0.3,
-
-    CanKill = true,
-
-    BreakLights = false,
-
-    KillRange = 50,
-
-    BackwardsMovement = true,
-
-    FlickerLights = {
-
-        false, -- Enabled
-
-        2.5, -- Time (seconds)
-
-    },
-
-    Cycles = {
-
-        Min = 1,
-
-        Max = 1
-
-    },
-
-    CamShake = {
-
-        true, -- Enabled
-
-        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-
-        100, -- Shake start distance (from Entity to you)
-
-    },
-
-    Jumpscare = {
-
-        false, -- Enabled ('false' if you don't want jumpscare)
-
-        {
-
-            Image1 = "https://www.roblox.com/library/11862656491", -- Image1 url
-
-            Image2 = "https://www.roblox.com/library/11862656491", -- Image2 url
-
-            Shake = false,
-
-            Sound1 = {
-
-                0, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Sound2 = {
-
-                5567523008, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Flashing = {
-
-                true, -- Enabled
-
-                Color3.fromRGB(6, 38, 135), -- Color
-
-            },
-
-            Tease = {
-
-                false, -- Enabled ('false' if you don't want tease)
-
-                Min = 1,
-
-                Max = 3,
-
-            },
-
-        },
-
-    },
-
-    CustomDialog = {"w"}, -- Custom death message (can be as long as you want)
-
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
-
-})
-
------ Advanced -----
-
-entity.Debug.OnEntityEnteredRoom = function(room)
-
-    print("Entity:", entity, "has entered room:", room)
-
-end
-
-entity.Debug.OnEntitySpawned = function(entityModel)
-
-    print("Entity has spawned:", entityModel)
-
-    wait(15)
-
-    workspace.Rebound:Destroy()
-
-end
-
-entity.Debug.OnEntityDespawned = function(entityModel)
-
-    print("Entity has despawned:", entityModel)
-
-    cue1:Destroy()
-
-    cue2:Destroy()
-
-end
-
-entity.Debug.OnEntityStartMoving = function(entityModel)
-
-    print("Entity has started moving:", entityModel)
-
-    game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
-
-wait(5.3)
-
-    
-
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()
-
--- Create entity
-
-local entity = Creator.createEntity({
-
-    CustomName = "Rebound2", -- Custom name of your entity
-
-    Model = "rbxassetid://12832732579", -- Can be GitHub file or rbxassetid
-
-    Speed = 100, -- Percentage, 100 = default Rush speed
-
-    DelayTime = fuck, -- Time before starting cycles (seconds)
-
-    HeightOffset = 0.3,
-
-    CanKill = true,
-
-    BreakLights = false,
-
-    KillRange = 50,
-
-    BackwardsMovement = true,
-
-    FlickerLights = {
-
-        false, -- Enabled
-
-        2.5, -- Time (seconds)
-
-    },
-
-    Cycles = {
-
-        Min = 1,
-
-        Max = 1
-
-    },
-
-    CamShake = {
-
-        true, -- Enabled
-
-        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-
-        100, -- Shake start distance (from Entity to you)
-
-    },
-
-    Jumpscare = {
-
-        false, -- Enabled ('false' if you don't want jumpscare)
-
-        {
-
-            Image1 = "https://www.roblox.com/library/11862656491", -- Image1 url
-
-            Image2 = "https://www.roblox.com/library/11862656491", -- Image2 url
-
-            Shake = false,
-
-            Sound1 = {
-
-                0, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Sound2 = {
-
-                5567523008, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Flashing = {
-
-                true, -- Enabled
-
-                Color3.fromRGB(6, 38, 135), -- Color
-
-            },
-
-            Tease = {
-
-                false, -- Enabled ('false' if you don't want tease)
-
-                Min = 1,
-
-                Max = 3,
-
-            },
-
-        },
-
-    },
-
-    CustomDialog = {"w"}, -- Custom death message (can be as long as you want)
-
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
-
-})
-
------ Advanced -----
-
-entity.Debug.OnEntityEnteredRoom = function(room)
-
-    print("Entity:", entity, "has entered room:", room)
-
-end
-
-entity.Debug.OnEntitySpawned = function(entityModel)
-
-    print("Entity has spawned:", entityModel)
-
-    wait(15)
-
-    workspace.Rebound2:Destroy()
-
-end
-
-entity.Debug.OnEntityDespawned = function(entityModel)
-
-    print("Entity has despawned:", entityModel)
-
-    cue1:Destroy()
-
-    cue2:Destroy()
-
-end
-
-entity.Debug.OnEntityStartMoving = function(entityModel)
-
-    print("Entity has started moving:", entityModel)
-
-    game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
-
-wait(5.4)
-
-    
-
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()
-
--- Create entity
-
-local entity = Creator.createEntity({
-
-    CustomName = "Rebound3", -- Custom name of your entity
-
-    Model = "rbxassetid://12832732579", -- Can be GitHub file or rbxassetid
-
-    Speed = 120, -- Percentage, 100 = default Rush speed
-
-    DelayTime = fuck, -- Time before starting cycles (seconds)
-
-    HeightOffset = 0.3,
-
-    CanKill = true,
-
-    BreakLights = false,
-
-    KillRange = 50,
-
-    BackwardsMovement = true,
-
-    FlickerLights = {
-
-        false, -- Enabled
-
-        2.5, -- Time (seconds)
-
-    },
-
-    Cycles = {
-
-        Min = 1,
-
-        Max = 1
-
-    },
-
-    CamShake = {
-
-        true, -- Enabled
-
-        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-
-        100, -- Shake start distance (from Entity to you)
-
-    },
-
-    Jumpscare = {
-
-        false, -- Enabled ('false' if you don't want jumpscare)
-
-        {
-
-            Image1 = "https://www.roblox.com/library/11862656491", -- Image1 url
-
-            Image2 = "https://www.roblox.com/library/11862656491", -- Image2 url
-
-            Shake = false,
-
-            Sound1 = {
-
-                0, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Sound2 = {
-
-                5567523008, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Flashing = {
-
-                true, -- Enabled
-
-                Color3.fromRGB(6, 38, 135), -- Color
-
-            },
-
-            Tease = {
-
-                false, -- Enabled ('false' if you don't want tease)
-
-                Min = 1,
-
-                Max = 3,
-
-            },
-
-        },
-
-    },
-
-    CustomDialog = {"w"}, -- Custom death message (can be as long as you want)
-
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
-
-})
-
------ Advanced -----
-
-entity.Debug.OnEntityEnteredRoom = function(room)
-
-    print("Entity:", entity, "has entered room:", room)
-
-end
-
-entity.Debug.OnEntitySpawned = function(entityModel)
-
-    print("Entity has spawned:", entityModel)
-
-    wait(15)
-
-    workspace.Rebound3:Destroy()
-
-end
-
-entity.Debug.OnEntityDespawned = function(entityModel)
-
-    print("Entity has despawned:", entityModel)
-
-    cue1:Destroy()
-
-    cue2:Destroy()
-
-end
-
-entity.Debug.OnEntityStartMoving = function(entityModel)
-
-    print("Entity has started moving:", entityModel)
-
-    game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
-
-wait(5.4)
-
-    
-
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()
-
--- Create entity
-
-local entity = Creator.createEntity({
-
-    CustomName = "Rebound4", -- Custom name of your entity
-
-    Model = "rbxassetid://12832732579", -- Can be GitHub file or rbxassetid
-
-    Speed = 150, -- Percentage, 100 = default Rush speed
-
-    DelayTime = fuck, -- Time before starting cycles (seconds)
-
-    HeightOffset = 0.3,
-
-    CanKill = true,
-
-    BreakLights = false,
-
-    KillRange = 50,
-
-    BackwardsMovement = true,
-
-    FlickerLights = {
-
-        false, -- Enabled
-
-        2.5, -- Time (seconds)
-
-    },
-
-    Cycles = {
-
-        Min = 1,
-
-        Max = 1
-
-    },
-
-    CamShake = {
-
-        true, -- Enabled
-
-        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-
-        100, -- Shake start distance (from Entity to you)
-
-    },
-
-    Jumpscare = {
-
-        false, -- Enabled ('false' if you don't want jumpscare)
-
-        {
-
-            Image1 = "https://www.roblox.com/library/11862656491", -- Image1 url
-
-            Image2 = "https://www.roblox.com/library/11862656491", -- Image2 url
-
-            Shake = false,
-
-            Sound1 = {
-
-                0, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Sound2 = {
-
-                5567523008, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Flashing = {
-
-                true, -- Enabled
-
-                Color3.fromRGB(6, 38, 135), -- Color
-
-            },
-
-            Tease = {
-
-                false, -- Enabled ('false' if you don't want tease)
-
-                Min = 1,
-
-                Max = 3,
-
-            },
-
-        },
-
-    },
-
-    CustomDialog = {"w"}, -- Custom death message (can be as long as you want)
-
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
-
-})
-
------ Advanced -----
-
-entity.Debug.OnEntityEnteredRoom = function(room)
-
-    print("Entity:", entity, "has entered room:", room)
-
-end
-
-entity.Debug.OnEntitySpawned = function(entityModel)
-
-    print("Entity has spawned:", entityModel)
-
-    wait(15)
-
-    workspace.Rebound:Destroy()
-
-end
-
-entity.Debug.OnEntityDespawned = function(entityModel)
-
-    print("Entity has despawned:", entityModel)
-
-    cue1:Destroy()
-
-    cue2:Destroy()
-
-end
-
-entity.Debug.OnEntityStartMoving = function(entityModel)
-
-    print("Entity has started moving:", entityModel)
-
-    game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
-
-wait(5.4)
-
-    
-
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThatNoah/Idk/main/Fuq.lua"))()
-
--- Create entity
-
-local entity = Creator.createEntity({
-
-    CustomName = "Rebound5", -- Custom name of your entity
-
-    Model = "rbxassetid://12832732579", -- Can be GitHub file or rbxassetid
-
-    Speed = 190, -- Percentage, 100 = default Rush speed
-
-    DelayTime = fuck, -- Time before starting cycles (seconds)
-
-    HeightOffset = 0.3,
-
-    CanKill = true,
-
-    BreakLights = false,
-
-    KillRange = 60,
-
-    BackwardsMovement = true,
-
-    FlickerLights = {
-
-        false, -- Enabled
-
-        2.5, -- Time (seconds)
-
-    },
-
-    Cycles = {
-
-        Min = 1,
-
-        Max = 1
-
-    },
-
-    CamShake = {
-
-        true, -- Enabled
-
-        {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-
-        100, -- Shake start distance (from Entity to you)
-
-    },
-
-    Jumpscare = {
-
-        false, -- Enabled ('false' if you don't want jumpscare)
-
-        {
-
-            Image1 = "https://www.roblox.com/library/11862656491", -- Image1 url
-
-            Image2 = "https://www.roblox.com/library/11862656491", -- Image2 url
-
-            Shake = false,
-
-            Sound1 = {
-
-                0, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Sound2 = {
-
-                5567523008, -- SoundId
-
-                { Volume = 0.5 }, -- Sound properties
-
-            },
-
-            Flashing = {
-
-                true, -- Enabled
-
-                Color3.fromRGB(6, 38, 135), -- Color
-
-            },
-
-            Tease = {
-
-                false, -- Enabled ('false' if you don't want tease)
-
-                Min = 1,
-
-                Max = 3,
-
-            },
-
-        },
-
-    },
-
-    CustomDialog = {"w"}, -- Custom death message (can be as long as you want)
-
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to who you call Rebound...", "It can rebound back by opening doors.", "Hide until you are safe."}, "Blue")
-
-})
-
------ Advanced -----
-
-entity.Debug.OnEntityEnteredRoom = function(room)
-
-    print("Entity:", entity, "has entered room:", room)
-
-end
-
-entity.Debug.OnEntitySpawned = function(entityModel)
-
-    print("Entity has spawned:", entityModel)
-
-    wait(15)
-
-    workspace.Rebound5:Destroy()
-
-end
-
-entity.Debug.OnEntityDespawned = function(entityModel)
-
-    print("Entity has despawned:", entityModel)
-
-    cue1:Destroy()
-
-    cue2:Destroy()
-
-    part:Destroy()
-
-end
-
-entity.Debug.OnEntityStartMoving = function(entityModel)
-
-    print("Entity has started moving:", entityModel)
-
-end
-
-entity.Debug.OnEntityFinishedRebound = function(entityModel)
-
-    print("Entity finished rebound:", entityModel)
-
-end
-
-entity.Debug.OnDeath = function()
-
-    warn("You died.")
-
-    print("fuck.")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/GoofyJumpscare"))()
-
-wait(1.8)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))()
-
-end
-
-------------------------
-
--- Run the created entity
-
-Creator.runEntity(entity)
-
-end
-
-entity.Debug.OnEntityFinishedRebound = function(entityModel)
-
-    print("Entity finished rebound:", entityModel)
-
-end
-
-entity.Debug.OnDeath = function()
-
-    warn("You died.")
-
-    print("HEHEHA.")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/GoofyJumpscare"))()
-
-wait(1.8)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))()
-
-end
-
-------------------------
-
--- Run the created entity
-
-Creator.runEntity(entity)
-
-end
-
-entity.Debug.OnEntityFinishedRebound = function(entityModel)
-
-    print("Entity finished rebound:", entityModel)
-
-end
-
-entity.Debug.OnDeath = function()
-
-    warn("You died.")
-
-    print("L .")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/GoofyJumpscare"))()
-
-wait(1.8)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))()
-
-end
-
-------------------------
-
--- Run the created entity
-
-Creator.runEntity(entity)
-
-end
-
-entity.Debug.OnEntityFinishedRebound = function(entityModel)
-
-    print("Entity finished rebound:", entityModel)
-
-end
-
-entity.Debug.OnDeath = function()
-
-    warn("You died.")
-
-    print("fuck.")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/GoofyJumpscare"))()
-
-wait(1.8)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))()
-
-end
-
-------------------------
-
--- Run the created entity
-
-Creator.runEntity(entity)
-
-end
-
-entity.Debug.OnEntityFinishedRebound = function(entityModel)
-
-    print("Entity finished rebound:", entityModel)
-
-end
-
-entity.Debug.OnDeath = function()
-
-    warn("You died.")
-
-    print("Rebound.")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Potato032/Recreation/main/GoofyJumpscare"))()
-
-wait(1.8)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BoundDie.txt"))()
-
-end
-
-------------------------
-
--- Run the created entity
-
-Creator.runEntity(entity)
+local CameraShaker = require(game.ReplicatedStorage.CameraShaker) 
+ local camara = game.Workspace.CurrentCamera 
+ local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf) 
+         camara.CFrame = camara.CFrame * shakeCf 
+ end) 
+  
+ wait(0.5) 
+   
+ local currentLoadedRoom=workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value] 
+ local eyes=game:GetObjects("rbxassetid://12621816107")[1] 
+ local dances = {"0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1", "1.07"} 
+ local fuckyou = {"1.5", "2.2", "1.8"} 
+ local mom = {"2.5", "3.5", "5", "7", "4"} 
+  
+ if eyes then end 
+ game.Workspace.CurrentRooms.ChildAdded:Connect(function() 
+     game.Workspace:FindFirstChild("Blink"):Destroy() 
+ end) 
+ local num=math.floor(#currentLoadedRoom.Nodes:GetChildren()/2) 
+ eyes.CFrame=( 
+         num==0 and currentLoadedRoom.Base or currentLoadedRoom.Nodes[num] 
+ ).CFrame+Vector3.new(0,3,0) 
+  
+ eyes.Parent=workspace 
+ eyes.Initiate:Play() 
+ local Blink = Instance.new("Sound") 
+ Blink.Parent = eyes 
+ Blink.SoundId = "rbxassetid://9120572970" 
+ Blink.Volume = 7 
+ local Blink2 = Instance.new("Sound") 
+ Blink2.Parent = eyes 
+ Blink2.SoundId = "rbxassetid://9119294536" 
+ Blink2.Volume = 7 
+ Blink:Play() 
+ Blink2:Play() 
+ eyes.Change:Play() 
+     local death1 = Instance.new("Sound") 
+     death1.Parent = eyes 
+     death1.Name = "BlinkDie" 
+     death1.SoundId = "rbxassetid://5867708670" 
+     death1.Volume = 0.7 
+     death1.Pitch = 2 
+     local distort = Instance.new("DistortionSoundEffect") 
+     distort.Level = 0.9 
+     distort.Parent = death1 
+     local eq = Instance.new("EqualizerSoundEffect") 
+     eq.HighGain = -60 
+     eq.MidGain = 0 
+     eq.LowGain = 0 
+     eq.Parent = death1 
+     local no = false 
+ if game.Players.LocalPlayer.Character.Humanoid.Health<=0 then 
+    no = true 
+ end 
+ wait(1) 
+ while true do 
+ if not game.Workspace:FindFirstChild("Blink") then break end 
+ eyes.Attachment.Close.Enabled = false 
+ eyes.Attachment.Open.Enabled = true 
+ Blink:Play() 
+ Blink2:Play() 
+ eyes.Change:Play() 
+ wait(1.4) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(fuckyou[math.random(1, #fuckyou)]) 
+         if game.Players.LocalPlayer.Character.Humanoid.MoveDirection ~= Vector3.new(0,0,0) then 
+         if no == false then 
+                 game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000) 
+             death1:Play() 
+         game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Blink" 
+         no = true 
+         wait(1.8) 
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/BlinkDie.txt"))() 
+         end 
+         end 
+ eyes.Sound.Pitch = dances[math.random(1, #dances)] 
+ camShake:Start() 
+ camShake:ShakeOnce(5, 15, 0.1, 1) 
+ wait(dances[math.random(1, #dances)]) 
+ enableDamage = false 
+ Blink:Play() 
+ Blink2:Play() 
+ eyes.Change:Play() 
+ eyes.Attachment.Close.Enabled = true 
+ eyes.Attachment.Open.Enabled = false 
+ eyes.Sound.Pitch = 1.07 
+ wait(mom[math.random(1, #mom)]) 
+ end
